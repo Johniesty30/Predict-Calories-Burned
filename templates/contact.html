@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Contact Us - Calories Burned Prediction
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-800 text-white font-roboto relative">
+    <img alt="A background image showing a fitness theme with people working out"
+        class="absolute inset-0 w-full h-full object-cover z-0 filter brightness-50" height="1080"
+        src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        width="1920" />
+    <div class="relative z-10 bg-gray-800 bg-opacity-50 min-h-screen">
+        <header class="bg-gray-900 bg-opacity-90 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center py-4 px-6">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-fire text-3xl text-blue-500"></i>
+                </div>
+                <nav class="space-x-6">
+                    <a class="text-white hover:text-blue-400 transition duration-300 ease-in-out transform hover:scale-105"
+                        href="/">
+                        <i class="fas fa-home mr-2"></i>HOME
+                    </a>
+                    <a class="text-white hover:text-blue-400 transition duration-300 ease-in-out transform hover:scale-105"
+                        href="/about">
+                        <i class="fas fa-info-circle mr-2"></i>ABOUT
+                    </a>
+                    <a class="text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out transform hover:scale-105"
+                        href="/contact" onclick="animatePageTransition(event)">
+                        <i class="fas fa-envelope mr-2"></i>CONTACT
+                    </a>
+                </nav>
+            </div>
+        </header>
+        <div class="container mx-auto p-10 fade-in">
+            <div
+                class="max-w-4xl mx-auto bg-gray-900 bg-opacity-90 p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+                <h1 class="text-3xl font-bold mb-6 text-center text-blue-500">
+                    Contact Us
+                </h1>
+                <p class="text-gray-300 mb-4">
+                    We would love to hear from you! Whether you have a question about our tool, need assistance, or just
+                    want to provide feedback, feel free to reach out to us.
+                </p>
+                <form action="/submit-contact" method="post" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-300">
+                            Name:
+                        </label>
+                        <input
+                            class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                            name="name" required="" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-gray-300">
+                            Email:
+                        </label>
+                        <input
+                            class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                            name="email" required="" type="email" />
+                    </div>
+                    <div>
+                        <label class="block text-gray-300">
+                            Message:
+                        </label>
+                        <textarea
+                            class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                            name="message" required="" rows="4"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+                            type="submit">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function animatePageTransition(event) {
+            event.preventDefault();
+            document.querySelector('.container').classList.remove('fade-in');
+            document.querySelector('.container').classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

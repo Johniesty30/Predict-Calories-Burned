@@ -1,0 +1,225 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>
+    Calories Burned Prediction
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .gradient-text {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-800 text-white font-roboto relative">
+  <img alt="A background image showing a fitness theme with people working out"
+    class="absolute inset-0 w-full h-full object-cover z-0 filter brightness-50" height="1080"
+    src="https://images.unsplash.com/photo-1550259979-ed79b48d2a30?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    width="1920" />
+  <div class="relative z-10 bg-gray-800 bg-opacity-50 min-h-screen">
+    <header class="bg-gray-900 bg-opacity-90 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-fire text-3xl text-blue-500"></i>
+        </div>
+        <nav class="space-x-6">
+          <a class="text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out transform hover:scale-105"
+            href="/">
+            <i class="fas fa-home mr-2"></i>HOME
+          </a>
+          <a class="text-white hover:text-blue-400 transition duration-300 ease-in-out transform hover:scale-105"
+            href="/about">
+            <i class="fas fa-info-circle mr-2"></i>ABOUT
+          </a>
+          <a class="text-white hover:text-blue-400 transition duration-300 ease-in-out transform hover:scale-105"
+            href="/contact">
+            <i class="fas fa-envelope mr-2"></i>CONTACT
+          </a>
+        </nav>
+      </div>
+    </header>
+    <div class="flex items-center justify-center min-h-screen" id="welcome-section">
+      <div class="container mx-auto p-10 fade-in">
+        <div
+          class="max-w-lg mx-auto bg-gray-900 bg-opacity-90 p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 text-center">
+          <h1 class="text-4xl font-bold mb-6 text-blue-500">
+            Welcome to Calories Burned Prediction
+          </h1>
+          <p class="text-gray-300 mb-6">
+            Use our tool to predict the number of calories you burn during your workout sessions.
+          </p>
+          <a href="#input-form"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-center min-h-screen" id="input-form">
+      <div class="container mx-auto p-10">
+        <div
+          class="max-w-lg mx-auto bg-gray-900 bg-opacity-90 p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+          <h1 class="text-3xl font-bold mb-6 text-center text-blue-500">
+            Predict Calories Burned
+          </h1>
+          <form action="/predict" class="space-y-4" method="post">
+            <div>
+              <label class="block text-gray-300">
+                Age:
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Age" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Gender (Male/Female):
+              </label>
+              <select class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Gender" required="">
+                <option value="0">
+                  Female
+                </option>
+                <option value="1">
+                  Male
+                </option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Weight (kg):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Weight" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Height (m):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Height" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Max BPM (Maximum heart rate during workout sessions):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Max_BPM" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Avg BPM (Average heart rate during workout sessions):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Avg_BPM" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Resting BPM (Heart rate at rest before workout):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Resting_BPM" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Session Duration (Duration of each workout session in hours):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Session_Duration" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Workout Type:
+              </label>
+              <select class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Workout_Type" required="">
+                <option value="0">
+                  Cardio
+                </option>
+                <option value="1">
+                  HTT
+                </option>
+                <option value="2">
+                  Strength
+                </option>
+                <option value="3">
+                  Yoga
+                </option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Fat Percentage (Body fat percentage):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Fat_Percentage" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Water Intake (Daily water intake during workouts in liters ):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Water_Intake" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Workout Frequency (days/week):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Workout_Frequency" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                Experience Level (: Level of experience, from beginner/1 to exper/3):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="Experience_Level" required="" type="text" />
+            </div>
+            <div>
+              <label class="block text-gray-300">
+                BMI ( Body Mass Index):
+              </label>
+              <input class="w-full p-2 border border-gray-700 rounded mt-1 bg-gray-800 text-white focus:bg-gray-800"
+                name="BMI" required="" type="text" />
+            </div>
+            <div class="text-center">
+              <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="submit">
+                Predict
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
